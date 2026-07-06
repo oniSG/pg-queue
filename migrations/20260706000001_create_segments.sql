@@ -1,9 +1,9 @@
-CREATE TABLE todos (
+CREATE TABLE segments (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    title TEXT NOT NULL,
-    done BOOLEAN NOT NULL DEFAULT FALSE,
+    name TEXT NOT NULL,
+    recalculated_at TIMESTAMPTZ,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX todos_created_at_idx ON todos (created_at DESC);
+CREATE INDEX segments_created_at_idx ON segments (created_at DESC);

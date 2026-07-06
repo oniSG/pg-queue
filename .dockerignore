@@ -1,0 +1,11 @@
+target/
+.git/
+.env
+.env.local
+.sqlx/
+k8s/
+Tiltfile
+docker-compose.yml
+justfile
+*.log
+.DS_Store

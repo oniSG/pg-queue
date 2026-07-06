@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: pg-queue-app
+          command: ["/usr/local/bin/worker"]
+          env:
+            - name: DATABASE_URL
+              value: postgres://pgqueue:pgqueue@postgres:5432/pgqueue
+            - name: RUST_LOG
+              value: info,pg_queue=debug,sqlx=warn
