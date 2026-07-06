@@ -5,7 +5,6 @@ target/
 .sqlx/
 k8s/
 Tiltfile
-docker-compose.yml
-justfile
+README.md
 *.log
 .DS_Store
